@@ -1,0 +1,11 @@
+device=eth1
+bpf="port 53"
+interval=1000000
+duration=86400
+snaplen=512
+promisc=1
+sample=100
+filefmt=/var/tmp/mezzo/mezzo-a.nic.fr-SAMPLING-100.%Y-%m-%d.%H:%M.pcap
+mode=0640
+owner=bortzmeyer
+group=mezzo

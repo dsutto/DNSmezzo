@@ -1,0 +1,6 @@
+An implementation of a new data type in PostgreSQL:
+domainname. Properties: case-preserving but allow case-insensitive
+operations, functions to get the registered domain, the TLD, the
+number of labels.
+
+TODO

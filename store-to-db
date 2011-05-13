@@ -1,0 +1,1 @@
+time ./packets2postgresql -v -p -c "host=db.generic-nic.net sslmode=require user=dnsmezzo dbname=dnsmezzo2" /var/tmp/mezzo/mezzo-[B[B[B[B[B[B[B[B

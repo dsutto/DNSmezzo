@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" type="text/css" href="http://www.dnswitness.net/dnswitness.css" />
+    <title>DNSmezzo: Home</title>
+  </head>
+  <body>
+    <div>
+      <h1 class="main-title">DNSmezzo</h1>
+      <h2>Description</h2>
+      <p>DNSmezzo is a framework for the capture and analysis of
+<a href="http://en.wikipedia.org/wiki/Domain%20Name%20System">DNS</a> packets. It allows the manager of a DNS
+name server to get information such as the top N domains requests, the
+percentage of <a href="http://en.wikipedia.org/wiki/IPv6">IPv6</a> queries, the most talkative
+clients, etc. It is part of the broader program <a href="http://www.dnswitness.net/">DNSwitness</a>.</p>
+      <p>DNSmezzo is optimized for periodic, unattended runs, for instance
+from a <a href="http://en.wikipedia.org/wiki/cron">cron</a> job. Results are typicallly stored in a databse, most of
+the time a <a href="http://en.wikipedia.org/wiki/rDBMS">rDBMS</a>, to allow long-term
+surveys.</p>
+      <p>DNSmezzo is composed of a DNS parser which reads file in the
+popular <a href="http://en.wikipedia.org/wiki/pcap">pcap</a> format, then stores the data in a DBMS
+(currently <a href="http://en.wikipedia.org/wiki/PostgreSQL">PostgreSQL</a>) and of various programs,
+mostly made of <a href="http://en.wikipedia.org/wiki/SQL">SQL</a> code which will read the
+data and interpret them.</p>
+      <p>For creating the pcap files, we rely mostly on <a href="http://packages.debian.org/pcaputils">pcapdump</a> and sometimes
+on <a href="https://www.dns-oarc.net/tools/dnscap">dnscap</a>.</p>
+      <h2>Presentations</h2>
+      <p>At the <a href="http://www.ripe.net/ripe/meetings/ripe-59/">RIPE 59</a> meeting in <a href="http://en.wikipedia.org/wiki/Lisbon">Lisbon</a>:</p>
+      <ul>
+<li><a href="dnsmezzo-RIPE59-SHOW.pdf">Presentation version</a></li>
+<li><a href="dnsmezzo-RIPE59-PRINT.pdf">Printer-friendly version</a></li>
+</ul>
+      <h2>Related programs</h2>
+      <ul>
+<li><a href="http://opensource.iis.se/trac/dns2db">dns2db</a>, a very
+similar project</li>
+<li><a href="http://dns.measurement-factory.com/tools/dsc/">DSC</a>, which is more targeted towards "keeping an eye" monitoring.</li>
+</ul>
+      <h2>Download</h2>
+      <p><a href="DNSmezzo.tar.gz">Get the tarball</a>. But be careful, it
+is less than <a href="http://en.wikipedia.org/wiki/Development%20stage">alpha</a> and not 
+documented.</p>
+      <h2>Licence</h2>
+      <p><a href="http://en.wikipedia.org/wiki/GNU%20General%20Public%20License">GPL</a> See the COPYING file. DNSmezzo has been
+developed at <a href="http://www.afnic.fr/">AFNIC</a>, mostly by
+Stéphane Bortzmeyer.</p>
+      <hr class="before-footer" />
+      <p class="footer"><a href="index.html">Home</a>. Web site maintained by 
+        <code><a href="mailto:webmaster@dnswitness.net">webmaster@dnswitness.net</a></code>. 
+        Hosted by <a href="http://www.afnic.fr/">AFNIC</a>.
+      </p>
+    </div>
+  </body>
+</html>

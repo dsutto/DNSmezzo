@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>        
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">                                                   
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:tal="http://xml.zope.org/namespaces/tal">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>        
+    <link rel="stylesheet" href="blueprint/screen.css" type="text/css" media="screen, projection" />
+    <link rel="stylesheet" href="blueprint/print.css" type="text/css" media="print" /> 
+    <title>QTYPE statisztikák | DNSmezzo</title>     
+  </head>
+       
+  <body>
+    <h1>DNSmezzo eredmények</h1>
+      <h2>Összes eddigi DNS kérés QTYPE szerinti megoszlása (utoljára módosítva: <span tal:replace="now"/>)</h2>
+          <table>
+            <thead>
+             <tr><th>QTYPE</th><th>Jelentés</th><th>Kérések száma</th><th>Százalékban</th></tr>
+            </thead>
+            <tbody>
+             <tr tal:repeat="qtype qtypes">
+               <td tal:content="qtype/type"></td><td tal:content="qtype/meaning"></td><td tal:content="qtype/count"></td><td tal:content="qtype/perc"></td>
+            </tr>
+            </tbody>
+          </table>
+      <h2>Időbeli eloszlás</h2>
+       <p><img alt="" src="qtypes.png"/></p>
+  </body> 
+          
+</html>

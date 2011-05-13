@@ -1,0 +1,15 @@
+<page title="Home" pagetitle="Results">
+
+<p>Here are the current results 
+obtained by <a href="http://www.dnsmezzo.net/">DNSmezzo</a> on a simple host:</p>
+<ul>
+<li><a href="ipv6.html">IPv6 transport</a>,</li>
+<li><a href="qtypes.html">QTYPE queries</a>,</li>
+<li><a href="top100.html">Domains with most queries</a>,</li>
+<li><a href="nxdomain.html">Domains that were queried, but didn't exist (NXDOMAIN)</a>,</li>
+<li><a href="respsize.html">Size of responses</a>,</li>
+<li><a href="updates.html">Percentage of dynamic updates</a>,</li>
+</ul>
+
+</page>
+

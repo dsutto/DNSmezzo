@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>        
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">                                                   
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:tal="http://xml.zope.org/namespaces/tal">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>        
+    <link rel="stylesheet" href="blueprint/screen.css" type="text/css" media="screen, projection" />
+    <link rel="stylesheet" href="blueprint/print.css" type="text/css" media="print" /> 
+    <title>TOP100 statisztikák | DNSmezzo</title>     
+  </head>
+       
+  <body>
+    <h1>DNSmezzo eredmények</h1>
+      <h2>100 leggyakrabban kérdezett domain név (utoljára módosítva: <span tal:replace="now"/>)</h2>
+    <table>
+      <thead>
+       <tr><th>Domain név</th><th>Kérések száma</th></tr>
+      </thead>
+      <tbody>
+         <tr tal:repeat="domain domains">
+           <td tal:content="domain/domain"></td><td tal:content="domain/count"></td>
+        </tr>
+      </tbody>
+    </table>
+  </body> 
+          
+</html>

@@ -1,0 +1,9 @@
+device=eth1
+bpf="ip6 and port 53"
+interval=604800
+snaplen=512
+promisc=1
+filefmt=/var/tmp/mezzo/mezzo-batilda-ethernet-dns-SAMPLING-1.%Y-%m-%d.%H:%M.pcap
+mode=0640
+owner=bortzmeyer
+group=adm

@@ -1,0 +1,1 @@
+create view qtype as select date_trunc('hour', date) + interval '1 minutes' * floor(extract(minute from date) / 1) as start, type, count(*) from dns_packets,dns_types where qtype=value group by 1, 2 order by 1 asc;

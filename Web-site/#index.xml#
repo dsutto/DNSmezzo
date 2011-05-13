@@ -1,0 +1,52 @@
+<page title="Home" pagetitle="DNSmezzo">
+
+<h2>Description</h2>
+
+<p>DNSmezzo is a framework for the capture and analysis of
+<wikipedia name="Domain Name System">DNS</wikipedia> packets. It allows the manager of a DNS
+name server to get information such as the top N domains requests, the
+percentage of <wikipedia>IPv6</wikipedia> queries, the most talkative
+clients, etc. It is part of the broader program <a
+href="http://www.dnswitness.net/">DNSwitness</a>.</p>
+
+<p>DNSmezzo is optimized for periodic, unattended runs, for instance
+from a <wikipedia>cron</wikipedia> job. Results are typicallly stored in a databse, most of
+the time a <wikipedia>rDBMS</wikipedia>, to allow long-term
+surveys.</p>
+
+<p>DNSmezzo is composed of a DNS parser which reads file in the
+popular <wikipedia>pcap</wikipedia> format, then stores the data in a DBMS
+(currently <wikipedia>PostgreSQL</wikipedia>) and of various programs,
+mostly made of <wikipedia>SQL</wikipedia> code which will read the
+data and interpret them.</p>
+
+<p>For creating the pcap files, we rely mostly on <a
+href="http://packages.debian.org/pcaputils">pcapdump</a> and sometimes
+on <a href="https://www.dns-oarc.net/tools/dnscap">dnscap</a>.</p>
+
+<h2>Presentations</h2>
+
+<p>None yet. May be <a href="http://www.ripe.net/ripe/meetings/ripe-59/">RIPE-59</a> in <wikipedia>Lisbon</wikipedia>.</p>
+
+<h2>Related programs</h2>
+
+<ul>
+<li><a href="http://opensource.iis.se/trac/dns2db">dns2db</a>, a very
+similar project</li>
+<li><a href="http://dns.measurement-factory.com/tools/dsc/">DSC</a>, which is more targeted towards "keeping an eye" monitoring.</li>
+</ul>
+
+<h2>Download</h2>
+
+<p><a href="DNSmezzo.tar.gz">Get the tarball</a>. But be careful, it
+is less than <wikipedia name="Development stage" anchor="Alpha">alpha</wikipedia> and not 
+documented.</p>
+
+<h2>Licence</h2>
+
+<p><wikipedia name="GNU General Public License">GPL</wikipedia> See the COPYING file. DNSmezzo has been
+developed at <a href="http://www.afnic.fr/">AFNIC</a>, mostly by
+StÅÈphane Bortzmeyer.</p>
+
+
+</page>

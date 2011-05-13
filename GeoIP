@@ -1,0 +1,24 @@
+Possible providers of geoloc information for IP addresses.
+
+Things to check:
+
+* price
+* IPv6 support
+* downloadable in bulk or only via an API (and which one)
+
+
+1)
+http://www.analysespider.com/ip2country/
+Pay
+
+2)
+http://www.maxmind.com/app/geolitecountry
+
+3) 
+http://ipinfodb.com/ip_database.php
+
+4)
+http://ip.ludost.net/
+
+5)
+http://packages.debian.org/lenny-backports/geoip-database

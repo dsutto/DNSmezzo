@@ -1,0 +1,11 @@
+device=lo
+bpf="ip6 and port 53"
+interval=604800
+snaplen=512
+promisc=1
+sample=5
+random
+filefmt=/var/tmp/mezzo/mezzo-batilda-loopback-dns-SAMPLING-5.%Y-%m-%d.%H:%M.pcap
+mode=0640
+owner=bortzmeyer
+group=adm
