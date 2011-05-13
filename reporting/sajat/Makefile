@@ -1,4 +1,5 @@
 STYLESHEET=page.xslt
+DATE="` date +"%F %T"`"
 
 all: index.html qtypes top100 nxdomain ipv6
 
@@ -74,14 +75,23 @@ top100.html: top100-DATABASE top100.tmpl.xhtml
 # respsize.html: respsize-DATABASE respsize-page.py respsize.png respsize.tmpl.xhtml
 # 	python respsize-page.py
 
+
+# And here comes a hacking in order to overcome the lack of tal: modules in XHTML 1.0 DTD
+%.tmpl.xhtml.tmp: %.tmpl.xml ${STYLESHEET}
+	xsltproc  \
+		--output $@ --stringparam lastmod $(DATE) ${STYLESHEET} $<
+
+%.tmpl.xhtml: %.tmpl.xhtml.tmp
+	sed 's/&lt;/</g' < $< | sed 's/&gt;/>/g' > $@
+
 %.html: %.xml ${STYLESHEET} 
 	xsltproc  \
-		--output $@ ${STYLESHEET} $< #&& xmllint  --valid $@
+		--output $@ --stringparam lastmod $(DATE) ${STYLESHEET} $< #&& xmllint  --valid $@
 
 install: all
-	cp -a -p *.html *.png /var/www/results.dnsmezzo.net/
+	cp -a -r -p *.html *.png img blueprint /home/sutda/public_html/results/
 	
 clean:
-	rm -f *.png *.html *.dat *~ *DATABASE
+	rm -f *.png *.html *.dat *~ *DATABASE *.xhtml *.tmp
 
 re: clean all

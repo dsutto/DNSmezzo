@@ -4,7 +4,7 @@
   exclude-result-prefixes = "str"
   version='1.0'>
 
-<!-- nem tudom, mit csinál, de hibát dob.  <xsl:import href="../../library.xslt"/> -->
+  <xsl:import href="../../library.xslt"/>
   
   <xsl:param name="projectname">DNSmezzo</xsl:param>
 

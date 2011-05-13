@@ -1,14 +1,17 @@
-<?xml version="1.0" encoding="UTF-8"?>        
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">                                                   
-
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:tal="http://xml.zope.org/namespaces/tal">
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:tal="http://xml.zope.org/namespaces/tal">
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>        
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>IPv6 statisztikák | DNSmezzo</title>
     <link rel="stylesheet" href="blueprint/screen.css" type="text/css" media="screen, projection" />
-    <link rel="stylesheet" href="blueprint/print.css" type="text/css" media="print" /> 
-    <title>IPv6 statisztikák | DNSmezzo</title>     
+    <link rel="stylesheet" href="blueprint/print.css" type="text/css" media="print" />
+    <style type="text/css">
+      ul {
+        list-style-type: none;
+      }
+    </style>
   </head>
-       
   <body>
     <div class="container">
       <div id="header" class="span-24 last">
@@ -23,14 +26,15 @@
         </div>
         <hr />
       </div>
-
       <div class="box">
         <h2>DNSmezzo eredmények</h2>
-          <h3>IPv6 fölött érkezett kérések aránya (utoljára módosítva: <span tal:replace="now"/>)</h3>
-          <p tal:repeat="v6-query v6-queries">Átlagosan a kérések <span tal:content="v6-query/perc"/> %-a érkezett IPv6 fölött.</p>
-          <p><img alt="" src="ipv6.png"/></p>
+        <h3>IPv6 fölött érkezett kérések aránya (utoljára módosítva: <span tal:replace="now"/>)</h3>
+        <p><span tal:repeat="v6-query v6-queries">Átlagosan a kérések <span tal:content="v6-query/perc"/> %-a érkezett IPv6 fölött.</span></p>
+        <p>
+          <img alt="" src="ipv6.png" />
+        </p>
+        <p>Utoljára módosíta: 2011-05-13 20:14:59</p>
       </div>
     </div>
-  </body> 
-          
+  </body>
 </html>
