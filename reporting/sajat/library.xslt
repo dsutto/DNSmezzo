@@ -23,10 +23,10 @@ xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
   <body>
     <div class="container">
       <div id="header" class="span-24 last">
-        <div id="header_left" class="span-8">
+        <div id="header_left" class="span-7">
           <img src="img/domain.png" alt="" />
         </div>
-        <div id="header_left" class="span-10">
+        <div id="header_left" class="span-11">
           <h1 class="prepend-1">.hu DNS statisztikák</h1>
         </div>
         <div id="header_left" class="span-6 last">

@@ -3,17 +3,17 @@ DATE="` date +"%F %T"`"
 
 all: index.html qtypes top100 nxdomain ipv6
 
-ipv6: 	
+ipv6: 	 reports.cfg
 	if [ ! -e ipv6-DATABASE ]; then touch ipv6-DATABASE; fi
 	${MAKE} ipv6.html
 
-ipv6.dat: ipv6-DATABASE general-plot.py
+ipv6.dat: ipv6-DATABASE general-plot.py reports.cfg
 	python general-plot.py ipv6_png > $@
 
 #ipv6_perc.dat: ipv6-DATABASE general-plot.py
 #	python general-plot.py ipv6_perc_png > $@
 
-ipv6.png: ipv6.dat ipv6.gp
+ipv6.png: ipv6.dat ipv6.gp reports.cfg
 	gnuplot ipv6.gp > $@
 
 # ipv6_perc.png: ipv6_perc.dat ipv6_perc.gp
@@ -22,27 +22,27 @@ ipv6.png: ipv6.dat ipv6.gp
 ipv6.html: ipv6-DATABASE general-page.py ipv6.png ipv6.tmpl.xhtml
 	python general-page.py ipv6
 
-qtypes:
+qtypes: reports.cfg
 	if [ ! -e qtypes-DATABASE ]; then touch qtypes-DATABASE; fi
 	${MAKE} qtypes.html
 
-qtypes.dat: qtypes-DATABASE general-plot.py
+qtypes.dat: qtypes-DATABASE general-plot.py reports.cfg
 	python general-plot.py qtypes_png > $@
 
-qtypes.png: qtypes.dat qtypes.gp
+qtypes.png: qtypes.dat qtypes.gp reports.cfg
 	gnuplot qtypes.gp > $@
 
 qtypes.html: qtypes-DATABASE qtypes.png qtypes.tmpl.xhtml
 	python general-page.py qtypes
 
-nxdomain: 	
+nxdomain: 	 reports.cfg
 	if [ ! -e nxdomain-DATABASE ]; then touch nxdomain-DATABASE; fi
 	${MAKE} nxdomain.html
 
 nxdomain.html: nxdomain-DATABASE nxdomain.tmpl.xhtml
 	python general-page.py nxdomain
 
-top100:
+top100: reports.cfg
 	if [ ! -e top100-DATABASE ]; then touch top100-DATABASE; fi
 	${MAKE} top100.html
 
