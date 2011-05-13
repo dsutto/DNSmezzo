@@ -1,0 +1,12 @@
+<page title="TOP100 statisztikák" pagetitle="DNSmezzo eredmények" pagesubtitle="100 leggyakrabban kérdezett domain név (utoljára módosítva: &lt;span tal:replace=&quot;now&quot;/&gt;)">
+    <table>
+      <thead>
+       <tr><th>Domain név</th><th>Kérések száma</th></tr>
+      </thead>
+      <tbody>
+         &lt;tr tal:repeat="domain domains"&gt;
+           &lt;td tal:content="domain/domain"&gt;&lt;/td&gt;&lt;td tal:content="domain/count"&gt;&lt;/td&gt;
+        &lt;/tr&gt;
+      </tbody>
+    </table>
+</page>
