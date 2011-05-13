@@ -74,7 +74,6 @@ top100.html: top100-DATABASE top100.tmpl.xhtml
 # respsize.html: respsize-DATABASE respsize-page.py respsize.png respsize.tmpl.xhtml
 # 	python respsize-page.py
 
-%.tmpl.html
 %.html: %.xml ${STYLESHEET} 
 	xsltproc  \
 		--output $@ ${STYLESHEET} $< #&& xmllint  --valid $@
