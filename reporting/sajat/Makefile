@@ -1,7 +1,7 @@
 STYLESHEET=page.xslt
 DATE="` date +"%F %T"`"
 
-all: index.html qtypes top100 nxdomain ipv6
+all: index.html qtypes top100 nxdomain ipv6 kaminsky
 
 ipv6: 	 reports.cfg
 	if [ ! -e ipv6-DATABASE ]; then touch ipv6-DATABASE; fi
@@ -74,6 +74,19 @@ top100.html: top100-DATABASE top100.tmpl.xhtml
 # 
 # respsize.html: respsize-DATABASE respsize-page.py respsize.png respsize.tmpl.xhtml
 # 	python respsize-page.py
+
+kaminsky: reports.cfg
+	if [ ! -e kaminsky-DATABASE ]; then touch kaminsky-DATABASE; fi
+	${MAKE} kaminsky.html
+
+# kaminsky.dat: qtypes-DATABASE general-plot.py reports.cfg
+# 	python general-plot.py qtypes_png > $@
+# 
+# kaminsky.png: qtypes.dat qtypes.gp reports.cfg
+# 	gnuplot qtypes.gp > $@
+
+kaminsky.html: kaminsky-DATABASE kaminsky.tmpl.xhtml
+	python general-page.py kaminsky
 
 
 # And here comes a hacking in order to overcome the lack of tal: modules in XHTML 1.0 DTD

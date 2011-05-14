@@ -3,7 +3,7 @@
 <html xmlns:tal="http://xml.zope.org/namespaces/tal">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <title>Home | DNSmezzo</title>
+    <title>Kaminsky bug | DNSmezzo</title>
     <link rel="stylesheet" href="blueprint/screen.css" type="text/css" media="screen, projection" />
     <link rel="stylesheet" href="blueprint/print.css" type="text/css" media="print" />
     <style type="text/css">
@@ -27,16 +27,19 @@
         <hr />
       </div>
       <div class="box">
-        <h2>Eredmények</h2>
-        <p>DNSmezzo eredmények ns.nic.hu szerveren végzett 4 perces napló alapján (2011 április 26. 15:06:35 - 15:10:50)</p>
-        <ul>
-		<li><a href="ipv6.html">IPv6 fölött érkezett kérések</a></li>
-		<li><a href="qtypes.html">Kérések QTYPE típusai</a></li>
-		<li><a href="top100.html">Top100 kérdés</a></li>
-		<li><a href="nxdomain.html">Leggyakoribb kérések nem létező nevekre (NXDOMAIN)</a></li>
-		<li><a href="kaminsky.html">Kaminsky bugra érzékeny rezolverek</a></li>
-	</ul>
-        <p>Utoljára módosíta: 2011-05-14 13:13:18</p>
+        <h2>DNSmezzo eredmények</h2>
+        <h3>Rezolverek SPR (Source Port Randomization) nélkül (utoljára módosítva: <span tal:replace="now"/>)</h3>
+        <table>
+      <thead>
+       <tr><th>Rezolver IP</th><th>Kérések száma</th><th>Különböző forrásportok száma</th><th>Ezek aránya</th></tr>
+      </thead>
+      <tbody>
+         <tr tal:repeat="resolver resolvers">
+           <td tal:content="resolver/resolver"></td><td tal:content="resolver/requests"></td><td tal:content="resolver/ports"></td><td tal:content="resolver/ratio"></td>
+        </tr>
+      </tbody>
+    </table>
+        <p>Utoljára módosíta: 2011-05-14 13:13:20</p>
       </div>
     </div>
   </body>

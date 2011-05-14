@@ -6,6 +6,7 @@
 		<li><a href="qtypes.html">Kérések QTYPE típusai</a></li>
 		<li><a href="top100.html">Top100 kérdés</a></li>
 		<li><a href="nxdomain.html">Leggyakoribb kérések nem létező nevekre (NXDOMAIN)</a></li>
+		<li><a href="kaminsky.html">Kaminsky bugra érzékeny rezolverek</a></li>
 	</ul>
 
 </page>

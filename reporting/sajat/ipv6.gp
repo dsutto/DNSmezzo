@@ -27,4 +27,4 @@ set key off
 set title "IPv6 fölött érkezett kérések száma"
 set style line 1 linewidth 100
 plot \
-  "ipv6.dat" using ($1):4:xtic(3) with imp lw 10
+  "ipv6.dat" using ($1):4:xtic(3) with imp lw 1

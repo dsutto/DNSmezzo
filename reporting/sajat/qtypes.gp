@@ -27,8 +27,8 @@ set key on
 set title "QTYPE értékek az ns.nic.hu szerveren"
 set style line 1 linewidth 100
 plot \
-  "qtypes.dat" using ($1):4:xtic(3) title "A" with imp lw 10, \
-  "qtypes.dat" using ($1+0.1):5 title "AAAA" with imp lw 10, \
-  "qtypes.dat" using ($1+0.2):9 title "DNSKEY" with imp lw 10, \
-  "qtypes.dat" using ($1+0.3):10 title "MX" with imp lw 10, \
-  "qtypes.dat" using ($1+0.4):12 title "NS" with imp lw 10
+  "qtypes.dat" using ($1):4:xtic(3) title "A" with imp lw 1, \
+  "qtypes.dat" using ($1+0.1):5 title "AAAA" with imp lw 1, \
+  "qtypes.dat" using ($1+0.2):9 title "DNSKEY" with imp lw 1, \
+  "qtypes.dat" using ($1+0.3):10 title "MX" with imp lw 1, \
+  "qtypes.dat" using ($1+0.4):12 title "NS" with imp lw 1

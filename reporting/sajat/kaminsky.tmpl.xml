@@ -1,0 +1,12 @@
+<page title="Kaminsky bug" pagetitle="DNSmezzo eredmények" pagesubtitle="Rezolverek SPR (Source Port Randomization) nélkül (utoljára módosítva: &lt;span tal:replace=&quot;now&quot;/&gt;)">
+    <table>
+      <thead>
+       <tr><th>Rezolver IP</th><th>Kérések száma</th><th>Különböző forrásportok száma</th><th>Ezek aránya</th></tr>
+      </thead>
+      <tbody>
+         &lt;tr tal:repeat="resolver resolvers"&gt;
+           &lt;td tal:content="resolver/resolver"&gt;&lt;/td&gt;&lt;td tal:content="resolver/requests"&gt;&lt;/td&gt;&lt;td tal:content="resolver/ports"&gt;&lt;/td&gt;&lt;td tal:content="resolver/ratio"&gt;&lt;/td&gt;
+        &lt;/tr&gt;
+      </tbody>
+    </table>
+</page>

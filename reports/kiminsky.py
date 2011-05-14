@@ -2,7 +2,7 @@
 
 # Find client resolvers which are not patched against the Kaminsky bug
 
-dbinfo = "dbname=dnsmezzo2"
+dbinfo = "dbname=dns_monitor host=127.0.0.1 user=dns_monitor password=nono"
 MIN_REQUESTS = 10
 MIN_RATIO = 0.4
 
