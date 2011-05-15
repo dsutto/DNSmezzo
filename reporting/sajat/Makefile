@@ -1,19 +1,20 @@
 STYLESHEET=page.xslt
 DATE="` date +"%F %T"`"
 
-all: index.html qtypes top100 nxdomain ipv6 kaminsky
+all: index.html qtypes top100 nxdomain kaminsky ipv6
 
-ipv6: 	 reports.cfg
+ipv6: 	 
 	if [ ! -e ipv6-DATABASE ]; then touch ipv6-DATABASE; fi
 	${MAKE} ipv6.html
 
-ipv6.dat: ipv6-DATABASE general-plot.py reports.cfg
+ipv6.dat: ipv6-DATABASE general-plot.py 
 	python general-plot.py ipv6_png > $@
 
 #ipv6_perc.dat: ipv6-DATABASE general-plot.py
 #	python general-plot.py ipv6_perc_png > $@
 
-ipv6.png: ipv6.dat ipv6.gp reports.cfg
+ipv6.png: ipv6.gp ipv6.dat
+	if [ ! -s ipv6.dat ]; then echo "2 2011-01-01 00:00:00 0" > ipv6.dat; fi
 	gnuplot ipv6.gp > $@
 
 # ipv6_perc.png: ipv6_perc.dat ipv6_perc.gp
@@ -22,27 +23,27 @@ ipv6.png: ipv6.dat ipv6.gp reports.cfg
 ipv6.html: ipv6-DATABASE general-page.py ipv6.png ipv6.tmpl.xhtml
 	python general-page.py ipv6
 
-qtypes: reports.cfg
+qtypes: 
 	if [ ! -e qtypes-DATABASE ]; then touch qtypes-DATABASE; fi
 	${MAKE} qtypes.html
 
-qtypes.dat: qtypes-DATABASE general-plot.py reports.cfg
+qtypes.dat: qtypes-DATABASE general-plot.py 
 	python general-plot.py qtypes_png > $@
 
-qtypes.png: qtypes.dat qtypes.gp reports.cfg
+qtypes.png: qtypes.dat qtypes.gp 
 	gnuplot qtypes.gp > $@
 
 qtypes.html: qtypes-DATABASE qtypes.png qtypes.tmpl.xhtml
 	python general-page.py qtypes
 
-nxdomain: 	 reports.cfg
+nxdomain: 	 
 	if [ ! -e nxdomain-DATABASE ]; then touch nxdomain-DATABASE; fi
 	${MAKE} nxdomain.html
 
 nxdomain.html: nxdomain-DATABASE nxdomain.tmpl.xhtml
 	python general-page.py nxdomain
 
-top100: reports.cfg
+top100: 
 	if [ ! -e top100-DATABASE ]; then touch top100-DATABASE; fi
 	${MAKE} top100.html
 
@@ -75,17 +76,17 @@ top100.html: top100-DATABASE top100.tmpl.xhtml
 # respsize.html: respsize-DATABASE respsize-page.py respsize.png respsize.tmpl.xhtml
 # 	python respsize-page.py
 
-kaminsky: reports.cfg
+kaminsky: 
 	if [ ! -e kaminsky-DATABASE ]; then touch kaminsky-DATABASE; fi
 	${MAKE} kaminsky.html
 
-# kaminsky.dat: qtypes-DATABASE general-plot.py reports.cfg
-# 	python general-plot.py qtypes_png > $@
-# 
-# kaminsky.png: qtypes.dat qtypes.gp reports.cfg
-# 	gnuplot qtypes.gp > $@
+kaminsky.dat: kaminsky-DATABASE general-plot.py 
+	python general-plot.py kaminsky_png > $@
 
-kaminsky.html: kaminsky-DATABASE kaminsky.tmpl.xhtml
+kaminsky.png: kaminsky.dat kaminsky.gp 
+	gnuplot kaminsky.gp > $@
+
+kaminsky.html: kaminsky-DATABASE kaminsky.tmpl.xhtml kaminsky.png
 	python general-page.py kaminsky
 
 

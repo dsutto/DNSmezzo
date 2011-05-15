@@ -1,0 +1,28 @@
+                  lowercase_qname          | count
+-------------------------------------------+-------
+ mail.t-online.hu                          |   497
+ netelek.hu                                |   335
+ iwiw.hu                                   |   199
+*freemail.hu                               |   169
+*citromail.hu                              |   114
+ mail.matav.hu                             |   112
+ maffia.hu                                 |    88
+*t-online.hu                               |    83
+ netquick.hu                               |    74
+*vipmail.hu                                |    70
+
+
+11:40:
+                     lowercase_qname       | count
+-------------------------------------------+-------
++freemail.hu                               |   392
+ freestart.hu                              |   240
+ enternet.hu                               |   170
+ elender.hu                                |   164
+ fw.hu                                     |   160
+ citromail.hu                              |   158
+ freemail.c3.hu                            |   147
+ hyip.hu                                   |   113
+ vipmail.hu                                |   109
+ t-online.hu                               |   101
+

@@ -28,4 +28,9 @@ for line in input:
                 (adapt(match.group(1)), match.group(2), 
                  adapt(match.group(3)), adapt(match.group(4)))
             # http://stackoverflow.com/questions/309945/how-to-quote-a-string-value-explicitly-python-db-apipsycopg2
+
+print """create table interesting_qtypes(id SERIAL UNIQUE NOT NULL,
+	value  INTEGER UNIQUE NOT NULL references dns_types(value));"""
+
+print "insert into interesting_qtypes(value) values(1),(2),(6),(15),(28);"
 input.close()

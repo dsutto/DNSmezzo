@@ -1,10 +1,9 @@
-set terminal png
+set terminal png size 900,480
 
 set tmargin 1
 set border 3
 set boxwidth 0.2
-set key right top
-set tics scale 0
+set key outside right
 
 
 
@@ -16,6 +15,12 @@ set boxwidth 0.9
 set xtic rotate by -45
 
 
+set xdata time
+set timefmt "%Y-%m-%d %H:%M"
+# Nem szep, hogy explicit szamokkal van megadva.
+set xrange ["2011-05-12 14:55":"2011-05-13 14:28"]
+set format x "%H:%M"
+set timefmt "%Y-%m-%d %H:%M:%S"
 
 
 set xrange [*:*]
@@ -27,8 +32,8 @@ set key on
 set title "QTYPE értékek az ns.nic.hu szerveren"
 set style line 1 linewidth 100
 plot \
-  "qtypes.dat" using ($1):4:xtic(3) title "A" with imp lw 1, \
-  "qtypes.dat" using ($1+0.1):5 title "AAAA" with imp lw 1, \
-  "qtypes.dat" using ($1+0.2):9 title "DNSKEY" with imp lw 1, \
-  "qtypes.dat" using ($1+0.3):10 title "MX" with imp lw 1, \
-  "qtypes.dat" using ($1+0.4):12 title "NS" with imp lw 1
+  "qtypes.dat" using 2:4 title "A" with imp lw 1, \
+  "qtypes.dat" using 2:8 title "AAAA" with imp lw 1, \
+  "qtypes.dat" using 2:7 title "MX" with imp lw 1, \
+  "qtypes.dat" using 2:5 title "NS" with imp lw 1, \
+  "qtypes.dat" using 2:6 title "SOA" with imp lw 1
