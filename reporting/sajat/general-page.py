@@ -24,6 +24,7 @@ sniffer = "sutda"
 
 conn = psycopg2.connect("dbname=dns_monitor host=127.0.0.1 user=dns_monitor password=nono")
 cursor = conn.cursor()
+#cursor.execute("set search_path='nic1';")
 
 html_page = open(template)
 template = simpleTAL.compileXMLTemplate(html_page)

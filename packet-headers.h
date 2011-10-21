@@ -20,6 +20,7 @@
 /* pcap variables, constants and macros */
 
 #define SIZE_LOOP 4
+#define SIZE_RAW_IP 0
 
 /* Ethernet addresses are 6 bytes */
 #define ETHER_ADDR_LEN	6

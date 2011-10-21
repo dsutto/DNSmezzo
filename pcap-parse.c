@@ -151,6 +151,16 @@ get_next_packet(struct dns_packet *decoded, pcap_parser_file * input)
         } else {                /* Ignore other packet types */
             goto next_packet;
         }
+    } else if (input->datalink == DLT_RAW) {
+        size_layer2 = SIZE_RAW_IP;
+        family = (ntohl(*((uint32_t *) packet)));
+        if (family == PF_INET6) {
+            ip_version = 6;
+        } else if (family == PF_INET) {
+            ip_version = 4;
+        } else {                /* Ignore other packet types */
+            goto next_packet;
+        }
     } else {
         fatal("Unsupported data link type %s (%i)\n",
               pcap_datalink_val_to_description(input->datalink), input->datalink);
