@@ -36,6 +36,16 @@ qtypes.png: qtypes.dat qtypes.gp
 qtypes.html: qtypes-DATABASE qtypes.png qtypes.tmpl.xhtml
 	python general-page.py qtypes
 
+greece2k: 
+	if [ ! -e greece2k-DATABASE ]; then touch greece2k-DATABASE; fi
+	${MAKE} greece2k.png
+
+greece2k.dat: greece2k-DATABASE general-plot.py 
+	python general-plot.py greece2k_png > $@
+
+greece2k.png: greece2k.dat greece2k.gp 
+	gnuplot greece2k.gp > $@
+
 nxdomain: 	 
 	if [ ! -e nxdomain-DATABASE ]; then touch nxdomain-DATABASE; fi
 	${MAKE} nxdomain.html
@@ -103,7 +113,7 @@ kaminsky.html: kaminsky-DATABASE kaminsky.tmpl.xhtml kaminsky.png
 		--output $@ --stringparam lastmod $(DATE) ${STYLESHEET} $< #&& xmllint  --valid $@
 
 install: all
-	cp -a -r -p *.html *.png img blueprint /home/sutda/public_html/results/
+	cp -a -r -p *.html *.png img blueprint /home/sutda/results/
 	
 clean:
 	rm -f *.png *.html *.dat *~ *DATABASE *.xhtml *.tmp

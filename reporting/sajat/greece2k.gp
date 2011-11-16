@@ -1,9 +1,9 @@
-set terminal png
+set terminal png size 900,480
 
 set tmargin 1
 set border 3
 set boxwidth 0.2
-set key right top
+set key outside right
 
 
 
@@ -19,17 +19,21 @@ set xdata time
 set timefmt "%Y-%m-%d %H:%M"
 # Nem szep, hogy explicit szamokkal van megadva.
 set xrange ["2011-10-21 18:51":"2011-10-28 14:28"]
-set format x "%H:%M"
+set format x "%b. %d."
 set timefmt "%Y-%m-%d %H:%M:%S"
 
 
 set xrange [*:*]
 
 set xlabel "Idő"
-set ylabel "Kérések száma óránként"
+set ylabel "Kérések száma percenként"
 set yrange [0:]
-set key off
-set title "IPv6 fölött érkezett kérések száma"
+set key on
+set title "QTYPE értékek greece2k.hu domain névre"
 set style line 1 linewidth 100
 plot \
-  "ipv6.dat" using ($1):4:xtic(3) with imp lw 1
+  "greece2k.dat" using 2:4 title "A" with imp lw 1, \
+  "greece2k.dat" using 2:8 title "AAAA" with imp lw 1, \
+  "greece2k.dat" using 2:7 title "MX" with imp lw 1, \
+  "greece2k.dat" using 2:5 title "NS" with imp lw 1, \
+  "greece2k.dat" using 2:6 title "SOA" with imp lw 1

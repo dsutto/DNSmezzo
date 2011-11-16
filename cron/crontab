@@ -1,0 +1,2 @@
+# Elso körben éjszakánként legenerálom a jelentéseket
+1 0 * * * /home/sutda/DNSmezzo/cron/dailyreport 2>&1 >> /var/log/dailyreport_output.log

@@ -34,7 +34,7 @@ INSERT INTO DNS_types (type, value, meaning, rfcreferences)
 INSERT INTO DNS_types (type, value, meaning, rfcreferences) 
                            VALUES ('RP', 17, 'for Responsible Person', '[RFC1183]');
 INSERT INTO DNS_types (type, value, meaning, rfcreferences) 
-                           VALUES ('AFSDB', 18, 'for AFS Data Base location', '[RFC1183]');
+                           VALUES ('AFSDB', 18, 'for AFS Data Base location', '[RFC1183][RFC5864]');
 INSERT INTO DNS_types (type, value, meaning, rfcreferences) 
                            VALUES ('ISDN', 20, 'for ISDN address', '[RFC1183]');
 INSERT INTO DNS_types (type, value, meaning, rfcreferences) 
@@ -58,7 +58,7 @@ INSERT INTO DNS_types (type, value, meaning, rfcreferences)
 INSERT INTO DNS_types (type, value, meaning, rfcreferences) 
                            VALUES ('SRV', 33, 'Server Selection', '[RFC2782]');
 INSERT INTO DNS_types (type, value, meaning, rfcreferences) 
-                           VALUES ('NAPTR', 35, 'Naming Authority Pointer', '[RFC2915][RFC2168]');
+                           VALUES ('NAPTR', 35, 'Naming Authority Pointer', '[RFC2915][RFC2168][RFC3403]');
 INSERT INTO DNS_types (type, value, meaning, rfcreferences) 
                            VALUES ('KX', 36, 'Key Exchanger', '[RFC2230]');
 INSERT INTO DNS_types (type, value, meaning, rfcreferences) 
@@ -94,10 +94,13 @@ INSERT INTO DNS_types (type, value, meaning, rfcreferences)
 INSERT INTO DNS_types (type, value, meaning, rfcreferences) 
                            VALUES ('IXFR', 251, 'incremental transfer', '[RFC1995]');
 INSERT INTO DNS_types (type, value, meaning, rfcreferences) 
-                           VALUES ('AXFR', 252, 'transfer of an entire zone', '[RFC1035]');
+                           VALUES ('AXFR', 252, 'transfer of an entire zone', '[RFC1035][RFC5936]');
 INSERT INTO DNS_types (type, value, meaning, rfcreferences) 
                            VALUES ('MAILB', 253, 'mailbox-related RRs (MB, MG or MR)', '[RFC1035]');
 INSERT INTO DNS_types (type, value, meaning, rfcreferences) 
                            VALUES ('MAILA', 254, 'mail agent RRs (Obsolete - see MX)', '[RFC1035]');
 INSERT INTO DNS_types (type, value, meaning, rfcreferences) 
                            VALUES ('DLV', 32769, 'DNSSEC Lookaside Validation', '[RFC4431]');
+create table interesting_qtypes(id SERIAL UNIQUE NOT NULL,
+	value  INTEGER UNIQUE NOT NULL references dns_types(value));
+insert into interesting_qtypes(value) values(1),(2),(6),(15),(28);

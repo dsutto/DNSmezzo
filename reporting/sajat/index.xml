@@ -1,6 +1,6 @@
 <page title="Home" pagetitle="Eredmények" >
 
-	<p>DNSmezzo eredmények ns1.nic.hu szerveren végzett 24 órás napló alapján (2011-05-12 14:56:25 - 2011-05-13 14:15:11)</p>
+	<p>DNSmezzo eredmények ns1.nic.hu szerveren végzett 24 órás napló alapján (2011-10-18 14:56:25 - 2011-11-01 00:15:11)</p>
 	<ul>
 		<li><a href="ipv6.html">IPv6 fölött érkezett kérések</a></li>
 		<li><a href="qtypes.html">Kérések QTYPE típusai</a></li>

@@ -1,0 +1,1 @@
+create view qtype_greece2k as select date_trunc('hour', date) + interval '5 minutes' * floor(extract(minute from date)/ 5) as start, type, value code, count(*)/5 as num from dns_packets,dns_types where qtype=value and registered_domain='greece2k.hu' group by 1, 2,3 order by 1 asc;

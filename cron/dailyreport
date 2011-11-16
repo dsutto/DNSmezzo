@@ -1,0 +1,19 @@
+#!/bin/bash
+
+first=`ls -lt /home/sutda/DNSmezzo/dump2/ | grep cap | head -1 | cut -d'.' -f4 | egrep -o '[0-9]+'`;
+rm /home/sutda/DNSmezzo/dump2/*;
+cd /home/sutda/DNSmezzo/dump2/;
+for f in /root/*cap*; do
+	ln $f;
+done
+last=`ls -lt /home/sutda/DNSmezzo/dump2/ | grep cap | head -1 | cut -d'.' -f4 | egrep -o '[0-9]+'`;
+last=$(expr $last - 1)
+for f in `seq $first $last`; do
+	/home/sutda/DNSmezzo/packets2postgresql  -v -c 'host=127.0.0.1 user=dns_monitor password=nono' /home/sutda/DNSmezzo/dump2/ns1.puff2.Oct211851.cap$f
+done
+
+cd /home/sutda/DNSmezzo/reporting/sajat;
+make clean
+time make
+chown sutda:sutda *
+make install

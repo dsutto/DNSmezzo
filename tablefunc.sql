@@ -1,7 +1,6 @@
 /* $PostgreSQL: pgsql/contrib/tablefunc/tablefunc.sql.in,v 1.12 2007/11/13 04:24:29 momjian Exp $ */
 
 -- Adjust this setting to control where the objects get created.
-SET search_path = nic1;
 
 CREATE OR REPLACE FUNCTION normal_rand(int4, float8, float8)
 RETURNS setof float8

@@ -38,6 +38,9 @@ dist: clean
 	(cd ..; tar --create --exclude=.svn --exclude=*.pcap --exclude=*~ --exclude=store-dbms --exclude=Kiminsky --exclude=nxdomain --exclude=*.out --exclude=*.log --verbose --file ${TARBALL} ${BASE_NAME})	
 	${GZIP} ${TARBALL}
 
+installsql: create.sql
+	cat create.sql | psql -U dns_monitor -h 127.0.0.1
+
 clean:
 	${RM} *.o test1 packets2postgresql *~
 
