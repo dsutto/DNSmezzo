@@ -113,7 +113,9 @@ kaminsky.html: kaminsky-DATABASE kaminsky.tmpl.xhtml kaminsky.png
 		--output $@ --stringparam lastmod $(DATE) ${STYLESHEET} $< #&& xmllint  --valid $@
 
 install: all
-	cp -a -r -p *.html *.png img blueprint /home/sutda/results/
+	
+	mkdir -p /home/sutda/results/`date -d 'yesterday' +%Y/%m/%d/`
+	cp -a -r -p *.html *.png img blueprint /home/sutda/results/`date -d 'yesterday' +%Y/%m/%d/`
 	
 clean:
 	rm -f *.png *.html *.dat *~ *DATABASE *.xhtml *.tmp
