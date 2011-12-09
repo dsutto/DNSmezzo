@@ -1,0 +1,12 @@
+<page title="100 legtöbbet kérdező rezolver" pagetitle="DNSmezzo eredmények" pagesubtitle="100 legtöbbet kérdező rezolver (utoljára módosítva: &lt;span tal:replace=&quot;now&quot;/&gt;)">
+    <table>
+      <thead>
+       <tr><th>Rezolver IP címe</th><th>Kérések száma</th></tr>
+      </thead>
+      <tbody>
+         &lt;tr tal:repeat="resolver resolvers"&gt;
+           &lt;td tal:content="resolver/resolver"&gt;&lt;/td&gt;&lt;td tal:content="resolver/count"&gt;&lt;/td&gt;
+        &lt;/tr&gt;
+      </tbody>
+    </table>
+</page>

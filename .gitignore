@@ -1,1 +1,7 @@
 .*.sw[po]
+reporting/sajat/*.dat
+reporting/sajat/*.html
+reporting/sajat/*.png
+reporting/sajat/*.tmpl.xhtml
+reporting/sajat/*-DATABASE
+
