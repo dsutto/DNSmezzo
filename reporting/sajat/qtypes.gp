@@ -1,4 +1,4 @@
-set terminal png size 900,480
+set terminal png size 800,480
 
 set tmargin 1
 set border 3
@@ -18,8 +18,8 @@ set xtic rotate by -45
 set xdata time
 set timefmt "%Y-%m-%d %H:%M"
 # Nem szep, hogy explicit szamokkal van megadva.
-set xrange ["2011-10-21 18:51":"2011-10-28 14:28"]
-set format x "%b. %d."
+# set xrange ["2011-10-21 18:51":"2011-10-28 14:28"]
+set format x "%H:%M"
 set timefmt "%Y-%m-%d %H:%M:%S"
 
 
