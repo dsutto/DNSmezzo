@@ -90,11 +90,16 @@ locale.setlocale(locale.LC_TIME, "hu_HU.%s" % encoding)
 
 if (oneday):
   try:
+    interval = date.strftime("%Y. %B %d. (%A)")
+    context.addGlobal("interval", unicode(interval, encoding))
+
     newtablename = "dns_packets_" + date.strftime("%Y%m%d")
     prequery = "CREATE TABLE " + newtablename + " AS SELECT * FROM " + dns_packets_tablename + " WHERE date_trunc('day', date) = %(date)s"
-    print prequery %{'date': date.isoformat()}
+    # print prequery %{'date': date.isoformat()}
     cursor.execute(prequery, {'date': date.isoformat()})
     conn.commit()
+
+
   except psycopg2.ProgrammingError, e:
     if (e.pgcode == '42P07'):
       conn.rollback()
@@ -104,8 +109,8 @@ if (oneday):
 dns_packets_tablename = newtablename
 query = query %{'dns_packets_tablename': dns_packets_tablename}
 
-print query
-print data
+# print query
+# print data
 cursor.execute(query, data)
 result = []
 for t in cursor.fetchall():
@@ -120,7 +125,7 @@ for t in cursor.fetchall():
 context.addGlobal (contextname, result)
 
 now = time.localtime(time.time())
-now_str = time.strftime("%Y %B %d. %H:%M", now)
+now_str = time.strftime("%Y. %B %d. %H:%M", now)
 context.addGlobal("now", unicode(now_str, encoding))
 
 rendered = simpleTALUtils.FastStringOutput()

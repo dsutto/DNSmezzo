@@ -109,9 +109,10 @@ kaminsky.html: kaminsky-DATABASE kaminsky.tmpl.xhtml kaminsky.png
 
 
 # And here comes a hacking in order to overcome the lack of "tal:" modules in XHTML 1.0 DTD
+# Olt type: --output $@ --stringparam lastmod $(LASTMOD) ${STYLESHEET} $<
 %.tmpl.xhtml.tmp: %.tmpl.xml ${STYLESHEET}
 	xsltproc  \
-		--output $@ --stringparam lastmod $(LASTMOD) ${STYLESHEET} $<
+		--output $@ ${STYLESHEET} $<
 
 %.tmpl.xhtml: %.tmpl.xhtml.tmp
 	sed 's/&lt;/</g' < $< | sed 's/&gt;/>/g' > $@

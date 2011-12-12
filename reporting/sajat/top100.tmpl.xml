@@ -1,4 +1,4 @@
-<page title="TOP100 statisztikák" pagetitle="DNSmezzo eredmények" pagesubtitle="100 leggyakrabban kérdezett domain név (utoljára módosítva: &lt;span tal:replace=&quot;now&quot;/&gt;)">
+<page title="TOP100 statisztikák" pagetitle="100 leggyakrabban kérdezett domain név" pagesubtitle="&lt;span tal:replace=&quot;interval&quot;/&gt;">
     <table>
       <thead>
        <tr><th>Domain név</th><th>Kérések száma</th></tr>
@@ -9,4 +9,5 @@
         &lt;/tr&gt;
       </tbody>
     </table>
+    <p>Utoljára módosíta: &lt;span tal:replace=&quot;now&quot;/&gt;</p>
 </page>

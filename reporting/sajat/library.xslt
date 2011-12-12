@@ -41,7 +41,6 @@ xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
           <h3><xsl:value-of select="page/@pagesubtitle" /></h3>
 	</xsl:if>
       <xsl:copy-of select="page/*" />
-      <p>Utoljára módosíta: <xsl:value-of select="$lastmod" /></p>
       </div>
     </div>
   </body>

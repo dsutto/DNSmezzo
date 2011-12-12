@@ -77,7 +77,6 @@ if (oneday):
   try:
     newtablename = "dns_packets_" + date.strftime("%Y%m%d")
     prequery = "CREATE TABLE " + newtablename + " AS SELECT * FROM " + dns_packets_tablename + " WHERE date_trunc('day', date) = %(date)s"
-    print prequery %{'date': date.isoformat()}
     cursor.execute(prequery, {'date': date.isoformat()})
     conn.commit()
   except psycopg2.ProgrammingError, e:
@@ -89,7 +88,6 @@ if (oneday):
 dns_packets_tablename = newtablename
 data['dns_packets_tablename'] = dns_packets_tablename
 query = query %data
-print query
 
 cursor.execute(query)
 while cursor.rownumber < cursor.rowcount:
