@@ -1,0 +1,13 @@
+<page title="100 legtöbb MX rekordot kérdező rezolver" pagetitle="100 legtöbb MX rekordot kérdező rezolver" pagesubtitle="&lt;span tal:replace=&quot;intercaval&quot;/&gt;">
+    <table>
+      <thead>
+       <tr><th>Rezolver IP címe</th><th>Kérések száma</th></tr>
+      </thead>
+      <tbody>
+         &lt;tr tal:repeat="resolver resolvers"&gt;
+           &lt;td tal:content="resolver/resolver"&gt;&lt;/td&gt;&lt;td tal:content="resolver/count"&gt;&lt;/td&gt;
+        &lt;/tr&gt;
+      </tbody>
+    </table>
+    <p>Utoljára módosíta: &lt;span tal:replace=&quot;now&quot;/&gt;</p>
+</page>

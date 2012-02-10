@@ -61,12 +61,27 @@ top100:
 top100.html: top100-DATABASE top100.tmpl.xhtml
 	python general-page.py --date=${DATE} top100
 
+top100_mx: 
+	if [ ! -e top100_mx-DATABASE ]; then touch top100_mx-DATABASE; fi
+	${MAKE} top100_mx.html
+
+top100_mx.html: top100_mx-DATABASE top100_mx.tmpl.xhtml
+	python general-page.py --date=${DATE} top100_mx
+
 top_resolvers: 
 	if [ ! -e top_resolvers-DATABASE ]; then touch top_resolvers-DATABASE; fi
 	${MAKE} top_resolvers.html
 
 top_resolvers.html: top_resolvers-DATABASE top_resolvers.tmpl.xhtml
 	python general-page.py --date=${DATE} top_resolvers
+
+top_mx_resolvers: 
+	if [ ! -e top_mx_resolvers-DATABASE ]; then touch top_mx_resolvers-DATABASE; fi
+	${MAKE} top_mx_resolvers.html
+
+top_mx_resolvers.html: top_mx_resolvers-DATABASE top_mx_resolvers.tmpl.xhtml
+	python general-page.py --date=${DATE} top_mx_resolvers
+
 # 
 # updates:
 # 	if [ ! -e updates-DATABASE ]; then touch updates-DATABASE; fi

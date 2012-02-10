@@ -1,0 +1,13 @@
+<page title="TOP100 MX statisztikák" pagetitle="100 leggyakrabban kérdezett MX rekord" pagesubtitle="&lt;span tal:replace=&quot;interval&quot;/&gt;">
+    <table>
+      <thead>
+       <tr><th>Domain név</th><th>Kérések száma</th></tr>
+      </thead>
+      <tbody>
+         &lt;tr tal:repeat="domain domains"&gt;
+           &lt;td tal:content="domain/domain"&gt;&lt;/td&gt;&lt;td tal:content="domain/count"&gt;&lt;/td&gt;
+        &lt;/tr&gt;
+      </tbody>
+    </table>
+    <p>Utoljára módosíta: &lt;span tal:replace=&quot;now&quot;/&gt;</p>
+</page>
