@@ -90,14 +90,16 @@ locale.setlocale(locale.LC_TIME, "hu_HU.%s" % encoding)
 
 if (oneday):
   try:
-    interval = date.strftime("%Y. %B %d. (%A)")
-    context.addGlobal("interval", unicode(interval, encoding))
+    queryinterval = date.strftime("%Y. %B %d. (%A)")
+    context.addGlobal("interval", unicode(queryinterval, encoding))
 
     newtablename = "dns_packets_" + date.strftime("%Y%m%d")
     prequery = "CREATE TABLE " + newtablename + " AS SELECT * FROM " + dns_packets_tablename + " WHERE date_trunc('day', date) = %(date)s"
     # print prequery %{'date': date.isoformat()}
     cursor.execute(prequery, {'date': date.isoformat()})
     conn.commit()
+    with open("temptables", "a") as f:
+        f.write(newtablename + "\n")
 
 
   except psycopg2.ProgrammingError, e:

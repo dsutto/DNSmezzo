@@ -79,6 +79,8 @@ if (oneday):
     prequery = "CREATE TABLE " + newtablename + " AS SELECT * FROM " + dns_packets_tablename + " WHERE date_trunc('day', date) = %(date)s"
     cursor.execute(prequery, {'date': date.isoformat()})
     conn.commit()
+    with open("temptables", "a") as f:
+        f.write(newtablename + "\n")
   except psycopg2.ProgrammingError, e:
     if (e.pgcode == '42P07'):
       conn.rollback()
