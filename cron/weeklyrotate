@@ -1,0 +1,9 @@
+#!/bin/bash
+
+echo $$ > /tmp/database.lock
+cd /home/sutda/DNSmezzo/cron
+export PGPASSWORD=nono
+cat rotate.sql | psql -U dns_monitor -h 127.0.0.1 || exit 1
+cat ../create.sql | psql -U dns_monitor -h 127.0.0.1 || exit 1
+sleep 300;
+rm /tmp/database.lock

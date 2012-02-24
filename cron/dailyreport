@@ -1,20 +1,27 @@
 #!/bin/bash
 
-# Régi fájlok törlése
-for f in `find /home/sutda/DNSmezzo/dump2/ -mtime +4 -type f`; do
-	rm $f
+dumpdir=/home/sutda/DNSmezzo/dump
+
+error() {
+	echo "An error occured"
+	exit 1
+}
+
+[[ -e /tmp/database.lock ]] && pid=`head -1 /tmp/database.lock` && while [ -e /proc/$pid ]; do sleep 10; echo "sleeping"; done
+
+# Delete old files
+mv $dumpdir/current/* $dumpdir/backup/
+mv $dumpdir/*cap* $dumpdir/current/
+find $dumpdir/backup/ -mtime +4 -type f -exec rm {} \;
+
+# Save content of new files into database
+for f in $dumpdir/current/*; do
+	/home/sutda/DNSmezzo/packets2postgresql  -v -c 'host=127.0.0.1 user=dns_monitor password=nono' $f || error;
 done
 
-# Elmúlt 24 óra fájljainak adatbázisba mentése
-for f in `find /home/sutda/DNSmezzo/dump2/ -mtime -1 -type f`; do
-	/home/sutda/DNSmezzo/packets2postgresql  -v -c 'host=127.0.0.1 user=dns_monitor password=nono' /home/sutda/DNSmezzo/dump2/ns1.puff2.Oct211851.cap$f
-done
-
-# Új jelentések gyártása
+# Generate new reports
 cd /home/sutda/DNSmezzo/reporting/sajat;
 make clean
-time make
+time make || error
 chown sutda:sutda *
-make install
-
-
+make install || error

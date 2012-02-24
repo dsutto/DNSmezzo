@@ -1,6 +1,6 @@
 STYLESHEET=page.xslt
 LASTMOD="` date +"%F %T"`"
-DATE="`date -d 'yesterday' +%Y/%m/%d/`" #
+DATE="`date -d 'yesterday' +%Y/%m/%d`" #
 
 all: index.html qtypes top100 nxdomain kaminsky ipv6 top_resolvers
 
@@ -141,6 +141,7 @@ install: all
 	cp -a -r -p *.html *.png img blueprint /home/sutda/results/$(DATE)
 	
 clean:
+	./cleanuptables
 	rm -f *.png *.html *.dat *~ *DATABASE *.xhtml *.tmp
 
 re: clean all
