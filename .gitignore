@@ -4,4 +4,7 @@ reporting/sajat/*.html
 reporting/sajat/*.png
 reporting/sajat/*.tmpl.xhtml
 reporting/sajat/*-DATABASE
+reporting/sajat/temptables
+dump
+
 
