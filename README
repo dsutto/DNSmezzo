@@ -1,0 +1,59 @@
+DNSMezzo
+========
+
+DNSmezzo is a framework for the capture and analysis of DNS packets. It
+allows the manager of a DNS name server to get information such as the
+top N domains requests, the percentage of IPv6 queries, the most
+talkative clients, etc. It is part of the broader program DNSwitness.
+
+DNSmezzo is optimized for periodic, unattended runs, for instance from a
+cron job. Results are typicallly stored in a databse, most of the time a
+rDBMS, to allow long-term surveys.
+
+Developed at AFNIC, mostly by Stéphane Bortzmeyer.
+Some modifications in reporting were made by Dániel Süttő.
+For more information see: http://www.dnsmezzo.net/
+
+Requirements:
+-------------
+Tipically you will need the following things:
+ * A libpcap compatible dumping utility
+ * PostgreSQL
+ * A C compiler
+ * Python with Postgresql support (pycopg2)
+ * xsltproc
+ * libpq
+ * libpcap
+ * ...
+
+Installation and usage:
+-----------------------
+ I.) Prepare database
+   * Create new user and database:
+       CREATE USER dns_monitor WITH CREATEDB  PASSWORD '********';
+       CREATE DATABASE dns with owner dns_monitor;
+   * Install tables and predefined constants:
+       cat create.sql | psql -U dns_monitor -h 127.0.0.1
+     Optionally you can update dns-parameters:
+       wget http://www.iana.org/assignments/dns-parameters
+       ./dnsparameters2sql.py > dns-parameters.sql
+       cat dns-parameters.sql | psql -U dns_monitor -h 127.0.0.1
+   * Install extra SQL libraries
+       cat util-functions.sql | psql -h 127.0.0.1 -U postgres dns_monitor
+       cat tablefunc.sql | psql -h 127.0.0.1 -U postgres dns_monitor
+
+ II.) Compile parser
+   Simply run make. Install required libraries and try again. :D
+     make
+ 
+ III.) Collect dns traffic in standart pcap files.
+
+ IV.) Save DNS packets into database
+     Use packets2postgresql or rewrite store-to-db script.
+
+ V.) Genarate reports
+     cd reporting/sajat
+   Rewrite installation path in Makefile
+     make install "DATE=2011/11/03"
+
+-- Written by Dániel Süttő
