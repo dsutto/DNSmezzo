@@ -1,39 +1,27 @@
-set terminal png size 800,480
-
-set tmargin 1
-set border 3
-set boxwidth 0.2
-set key outside right
+set terminal png size 860,480
 
 
-
-
-set style data histogram
-set style histogram cluster gap 1  title  offset character 0, 0, 0
-set style fill solid border -1
-set boxwidth 0.9
-set xtic rotate by -45
-
-
+xmin = "`head -1 qtypes.dat | cut -d' ' -f 2,3`"
+xmax = "`tail -1 qtypes.dat | cut -d' ' -f 2,3`"
+set title "QTYPE értékek az ns.nic.hu szerveren"
+set key outside bottom center horizontal
+set boxwidth 60 absolute
+set style fill solid noborder
+set xtics out rotate by -45 nomirror
+set ytics out
 set xdata time
-set timefmt "%Y-%m-%d %H:%M"
+set ylabel "Kérések száma másodpercenként"
 # Nem szep, hogy explicit szamokkal van megadva.
+# set timefmt "%Y-%m-%d %H:%M"
 # set xrange ["2011-10-21 18:51":"2011-10-28 14:28"]
 set format x "%H:%M"
 set timefmt "%Y-%m-%d %H:%M:%S"
-
-
-set xrange [*:*]
-
-set xlabel "Idő"
-set ylabel "Kérések száma másodpercenként"
 set yrange [0:]
-set key on
-set title "QTYPE értékek az ns.nic.hu szerveren"
-set style line 1 linewidth 100
+set xrange [xmin:xmax]
+
 plot \
-  "qtypes.dat" using 2:4 title "A" with imp lw 1, \
-  "qtypes.dat" using 2:8 title "AAAA" with imp lw 1, \
-  "qtypes.dat" using 2:7 title "MX" with imp lw 1, \
-  "qtypes.dat" using 2:5 title "NS" with imp lw 1, \
-  "qtypes.dat" using 2:6 title "SOA" with imp lw 1
+  'qtypes.dat' using 2:($5+$6+$8+$4+$7) with boxes title "MX", \
+  'qtypes.dat' using 2:($5+$6+$8+$4) with boxes title "A", \
+  'qtypes.dat' using 2:($5+$6+$8) with boxes title "AAAA", \
+  'qtypes.dat' using 2:($5+$6) with boxes title "SOA", \
+  'qtypes.dat' using 2:($5) with boxes title "NS"
