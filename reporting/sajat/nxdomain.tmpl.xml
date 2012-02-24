@@ -1,4 +1,4 @@
-<page title="NXDOMAIN statisztikák" pagetitle="100 leggyakrabban kérdezett nem létező domain név" pagesubtitle="&lt;span tal:replace=&quot;intercaval&quot;/&gt;">
+<page title="NXDOMAIN statisztikák" pagetitle="100 leggyakrabban kérdezett nem létező domain név" pagesubtitle="&lt;span tal:replace=&quot;interval&quot;/&gt;">
     <table>
       <thead>
        <tr><th>Domain név</th><th>Kérések száma</th></tr>
