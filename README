@@ -17,28 +17,30 @@ For more information see: http://www.dnsmezzo.net/
 Requirements:
 -------------
 Tipically you will need the following things:
- * A libpcap compatible dumping utility
+ * A C compiler (libc6, gcc)
+ * libpq (with headers)
+ * libpcap (with headers)
+ * A libpcap compatible dumping utility (eg. tcpdump)
  * PostgreSQL
- * A C compiler
  * Python with Postgresql support (pycopg2)
  * xsltproc
- * libpq
- * libpcap
+ * cron
  * ...
 
 Installation and usage:
 -----------------------
  I.) Prepare database
+  (* On Debian-like systems first login: sudo -u postgres psql)
    * Create new user and database:
        CREATE USER dns_monitor WITH CREATEDB  PASSWORD '********';
-       CREATE DATABASE dns with owner dns_monitor;
+       CREATE DATABASE dns_monitor with owner dns_monitor;
    * Install tables and predefined constants:
        cat create.sql | psql -U dns_monitor -h 127.0.0.1
      Optionally you can update dns-parameters:
        wget http://www.iana.org/assignments/dns-parameters
        ./dnsparameters2sql.py > dns-parameters.sql
        cat dns-parameters.sql | psql -U dns_monitor -h 127.0.0.1
-   * Install extra SQL libraries
+   * Optionally install extra SQL libraries (Must be done with postgres superuser)
        cat util-functions.sql | psql -h 127.0.0.1 -U postgres dns_monitor
        cat tablefunc.sql | psql -h 127.0.0.1 -U postgres dns_monitor
 
@@ -50,6 +52,7 @@ Installation and usage:
 
  IV.) Save DNS packets into database
      Use packets2postgresql or rewrite store-to-db script.
+     My solution: ./packets2postgresql  -v -c 'host=127.0.0.1 user=dns_monitor password=********' myfile.cap
 
  V.) Genarate reports
      cd reporting/sajat
