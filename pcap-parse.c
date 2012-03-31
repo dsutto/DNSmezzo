@@ -153,11 +153,11 @@ get_next_packet(struct dns_packet *decoded, pcap_parser_file * input)
         }
     } else if (input->datalink == DLT_RAW) {
         size_layer2 = SIZE_RAW_IP;
-        family = (ntohl(*((uint32_t *) packet)));
-        if (family == PF_INET6) {
-            ip_version = 6;
-        } else if (family == PF_INET) {
+        family = ((ntohl(*((uint32_t *) packet))) >> 28 ) ;
+	if (family == 4) {
             ip_version = 4;
+        } else if (family == 6) {
+            ip_version = 6;
         } else {                /* Ignore other packet types */
             goto next_packet;
         }
