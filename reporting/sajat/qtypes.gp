@@ -3,7 +3,7 @@ set terminal png size 860,480
 
 xmin = "`head -1 qtypes.dat | cut -d' ' -f 2,3`"
 xmax = "`tail -1 qtypes.dat | cut -d' ' -f 2,3`"
-set title "QTYPE értékek az ns.nic.hu szerveren"
+set title "QTYPE értékek az ns.nic.hu és az ns1.nic.hu szerveren"
 set key outside bottom center horizontal
 set boxwidth 60 absolute
 set style fill solid noborder
@@ -11,6 +11,7 @@ set xtics out rotate by -45 nomirror
 set ytics out
 set xdata time
 set ylabel "Kérések száma másodpercenként"
+set xlabel "UTC"
 set format x "%H:%M"
 set timefmt "%Y-%m-%d %H:%M:%S"
 set yrange [0:]
