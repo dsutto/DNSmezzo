@@ -8,11 +8,12 @@ if [ ! -e temptables ]; then
 	exit 0;
 fi
 
-while read table; do
+while read table && [ -n $table ]; do
 	echo "$dropcommand $table;"
 	echo "$dropcommand $table;" | psql -U dns_monitor -h 127.0.0.1 || error=true
 done < temptables
 
-if [ ! $error ]; then
+if ! false; then
+	echo "torlom"
 	rm temptables
 fi
