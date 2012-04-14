@@ -43,6 +43,7 @@ Installation and usage:
    * Optionally install extra SQL libraries (Must be done with postgres superuser)
        cat util-functions.sql | psql -h 127.0.0.1 -U postgres dns_monitor
        cat tablefunc.sql | psql -h 127.0.0.1 -U postgres dns_monitor
+       cat first_last_aggregate.sql | psql -h 127.0.0.1 -U postgres dns_monitor
 
  II.) Compile parser
    Simply run make. Install required libraries and try again. :D
