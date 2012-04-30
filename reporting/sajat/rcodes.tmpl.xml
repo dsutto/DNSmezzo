@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<page title="Válaszok Rcode szerini eloszlása" pagetitle="Válaszok Rcode szerini eloszlása" pagesubtitle="&lt;span tal:replace=&quot;interval&quot;/&gt;"><table><thead><tr><th>Rcode</th><th>Válaszok száma</th></tr></thead><tbody>
+        &lt;tr tal:repeat=&quot;one_row data&quot;&gt;
+           &lt;td tal:content=&quot;one_row/rcode&quot;&gt;&lt;/td&gt;&lt;td tal:content=&quot;one_row/count&quot;&gt;&lt;/td&gt;
+        &lt;/tr&gt;</tbody></table>
+       <p><img alt="" src="rcodes_png.png"/></p>
+	<p>Utoljára módosítva: &lt;span tal:replace=&quot;now&quot;/&gt;</p>
+	</page>

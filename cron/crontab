@@ -1,3 +1,3 @@
 # Elso körben éjszakánként legenerálom a jelentéseket
-1 1 * * * /home/sutda/DNSmezzo/cron/dailyreport 2>&1 >> /var/log/dailyreport_output.log
+0 2 * * * /home/sutda/DNSmezzo/cron/dailyreport 2>&1 >> /var/log/dailyreport_output.log
 0 20 * * 7 /home/sutda/DNSmezzo/cron/weeklyrotate 2>&1 >> /var/log/dailyreport_output.log

@@ -1,0 +1,116 @@
+/* Hacking for full height */
+* {
+	margin: 0px;
+}
+html, body {
+	height: 100%;
+}
+div.container {
+	background-color: #E5ECF9;
+	position: relative;
+	min-height: 100% !important;
+	height: 100% !important;
+}
+div.content {
+	min-height: 100%;
+	background-color: #E5ECF9;
+	display: block;
+}
+div.footer {
+	clear: both;
+	position: absolute;
+	bottom: 0px;
+}
+/* end hacking */
+
+hr.mid {
+	margin-bottom: 0px;
+}
+body {
+	background: #ffffff repeat-y 50% 0;
+	background-image: url("../img/background.png");
+}
+div.container {
+	height: 100%;
+}
+
+/* top menu */
+.top_menu {
+	height:40px;
+	background-color:#1E4366;
+}
+ul.mainmenu {
+        font-weight: normal;
+        float:left;
+        margin-top:3px;
+	list-style-type: none;
+}
+ 
+ul.mainmenu li {
+        float:left;
+ 	padding: 8px 20px;
+ 	border-style: solid;
+ 	color: #1AB7EA;
+}
+
+ul.mainmenu li.active {
+	background-color: #499610;
+	color: #ffffff;
+	-moz-border-radius:    10px;
+	-webkit-border-radius: 10px;
+	border-radius:         10px;
+}
+ 
+ 
+ul.mainmenu a:link,
+ul.mainmenu a:visited	{ color: #fff; text-decoration: none; }
+ul.mainmenu a:hover		{ color: #fff;  text-decoration: underline;}
+ul.mainmenu a:active	{ color: #fff; }
+ 
+/* statusbar */
+.top_statusbar {
+	height:40px;
+	background-color: #E5ECF9;
+}
+ul.statusbar {
+        font-weight: normal;
+        float:left;
+        margin-top:0px;
+        margin-bottom:0px;
+	list-style-type: upper-roman;
+}
+ 
+ul.statusbar div.item {
+       float:left;
+       padding-left: 40px;
+       padding-right: 1em;
+       border-style: solid;
+       color: #1E4366;
+}
+ul.statusbar div.item li {
+       padding: 8px 0.5em;
+}
+
+ul.statusbar div.active {
+       background-color: #1E4366;
+       color: #ffffff;
+       -webkit-border-bottom-right-radius: 20px;
+       -webkit-border-bottom-left-radius: 20px;
+       -moz-border-radius-bottomright: 20px;
+       -moz-border-radius-bottomleft: 20px;
+       border-bottom-right-radius: 20px;
+       border-bottom-left-radius: 20px;
+}
+ul.statusbar div.active a {
+	color: #ffffff;
+}
+
+.flash ul {
+	margin: 0px;
+}
+div.help {
+	font-style: italic;
+}
+div.help pre.popup {
+	display: none;
+}

@@ -9,6 +9,7 @@ import Utils
 import getopt
 import datetime
 import ConfigParser
+import subprocess
 
 
 def usage():
@@ -61,7 +62,7 @@ report_type = args[0]
 
 data={}
 config = ConfigParser.SafeConfigParser()
-config.read('reports.cfg')
+config.read(['reports.cfg', 'din_images.cfg'])
 for opt in config.items(report_type):
   exec (opt[0] + "=" + opt[1])
 
@@ -89,7 +90,10 @@ if (oneday):
 
 dns_packets_tablename = newtablename
 data['dns_packets_tablename'] = dns_packets_tablename
+data['percent_sign'] ='%'
 query = query %data
+
+f = open(report_type + '.dat', 'w')
 
 cursor.execute(query)
 while cursor.rownumber < cursor.rowcount:
@@ -97,6 +101,26 @@ while cursor.rownumber < cursor.rowcount:
     line = str(cursor.rownumber+1) + ' '
     for  val in enumerate(t):
       line += ('0' if val[1] is None else str(val[1])) + ' '
-    print line
+    f.write(line + '\n')
 
 conn.close()
+f.close()
+
+syscall=''
+if type == 'time_hist':
+  syscall = ['./time_hist.gp.sh',  "-d",  report_type + ".dat", "-o", report_type + ".png", "-t", pagetitle, "-f", " ".join(values), "-x", xlabel, "-y", ylabel]
+if type == 'data_hist':
+  syscall = ['./data_hist.gp.sh',  "-d",  report_type + ".dat", "-o", report_type + ".png", "-t", pagetitle, "-f", " ".join(values), "-x", xlabel, "-y", ylabel]
+if type == 'qtypes_png':
+  syscall = "./qtypes_png.gp.sh"
+if type == 'ipv6_png':
+  syscall = "./ipv6_png.gp.sh"
+if type == 'kaminsky_png':
+  syscall = "./kaminsky_png.gp.sh"
+
+print syscall
+if syscall == '':
+	exit("Can't create plot. Don't know which command to use. Bad type: " + type)
+
+subprocess.call(syscall)
+

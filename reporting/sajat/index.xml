@@ -1,13 +1,33 @@
 <page title="Home" pagetitle="Eredmények" >
 
-	<p>DNSmezzo eredmények ns1.nic.hu szerveren végzett naplózás alapján</p>
-	<ul>
-		<li><a href="ipv6.html">IPv6 fölött érkezett kérések</a></li>
+        <p>DNSmezzo eredmények az <span class="nameserver">ns.nic.hu</span> és az <span class="nameserver">ns1.nic.hu</span> szervereken végzett naplózás alapján (összesített)</p>
+        <ul>
+		<li><a href="all_packets.html">100 kérdés minden adata</a></li>
+	</ul>
+		<h5>Időbeli eloszlások</h5>
+        <ul>
 		<li><a href="qtypes.html">Kérések QTYPE típusai</a></li>
+		<li><a href="ipv6.html">IPv6 fölött érkezett kérések</a></li>
+	</ul>
+		<h5>Kérdezőkre vonatkozó statisztikák</h5>
+        <ul>
 		<li><a href="top_resolvers.html">Top100 rezolver</a></li>
+		<li><a href="kaminsky.html">Kaminsky bugra érzékeny rezolverek</a></li>
+		<li><a href="networks_4.html">Legaktívabb /24-es IPv4 hálózatok</a></li>
+		<li><a href="distrib_between_servers.html">Rezolverek megoszlása a kérdezett DNS szerver alapján</a></li>
+	</ul>
+		<h5>Kérdezett nevekre vonatkozó statisztikák:</h5>
+        <ul>
 		<li><a href="top100.html">Top100 kérdés</a></li>
 		<li><a href="nxdomain.html">Leggyakoribb kérések nem létező nevekre (NXDOMAIN)</a></li>
-		<li><a href="kaminsky.html">Kaminsky bugra érzékeny rezolverek</a></li>
+		<li><a href="punycode.html">Leggyakoribb punycode kódolású domain nevek</a></li>
 	</ul>
-
+		<h5>Egyéb érdekességek:</h5>
+        <ul>
+		<li><a href="non_IN_queries.html">Nem IN kérdések</a></li>
+		<li><a href="non_IN_stat.html">Nem IN kérdések statisztikái</a></li>
+		<li><a href="queried_servers.html">Kérdezett szerverek szerinti megoszlás</a></li>
+		<li><a href="edns0_buffer_size.html">Kérdések megoszlása EDNS0 buffer méret szerint</a></li>
+		<li><a href="rcodes.html">Válaszok RCODE szerint</a></li>
+	</ul>
 </page>

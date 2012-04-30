@@ -1,4 +1,8 @@
+#!/bin/bash
+
+gnuplot << EOF
 set terminal png
+set output 'kaminsky_png.png'
 
 set tmargin 3
 set border 3
@@ -29,4 +33,5 @@ set key off
 set title "SPR - Source Port Randomization"
 set style line 1 linewidth 100
 plot \
-  "< awk -v tot=`awk '{tot+=$2} END {print tot}' kaminsky.dat` -f kaminsky.awk kaminsky.dat" using ($3):($2*100) with lines lw 2 \
+  "< awk -v tot=`awk '{tot+=$2} END {print tot}' kaminsky_png.dat` -f kaminsky.awk kaminsky_png.dat" using (\$3):(\$2*100) with lines lw 2
+EOF

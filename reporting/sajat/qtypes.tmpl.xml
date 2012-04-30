@@ -1,4 +1,4 @@
-<page title="QTYPE statisztikák" pagetitle="Összes eddigi DNS kérés QTYPE szerinti megoszlása" pagesubtitle="&lt;span tal:replace=&quot;interval&quot;/&gt;">
+<page title="QTYPE statisztikák" pagetitle="DNS kérések QTYPE szerinti megoszlása" pagesubtitle="&lt;span tal:replace=&quot;interval&quot;/&gt;">
           <table>
             <thead>
              <tr><th>QTYPE</th><th>Jelentés</th><th>Kérések száma</th><th>Százalékban</th></tr>
@@ -10,6 +10,6 @@
             </tbody>
           </table>
       <h2>Időbeli eloszlás</h2>
-       <p><img alt="" src="qtypes.png"/></p>
+       <p><img alt="" src="qtypes_png.png"/></p>
  <p>Utoljára módosíta: &lt;span tal:replace=&quot;now&quot;/&gt;</p>
 </page>

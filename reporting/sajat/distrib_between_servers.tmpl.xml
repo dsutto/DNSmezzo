@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<page title="Rezolverek eloszlása a kérdezett DNS szerver szerint" pagetitle="Rezolverek eloszlása a kérdezett DNS szerver szerint" pagesubtitle="&lt;span tal:replace=&quot;interval&quot;/&gt;"><table><thead><tr><th>Rezolver</th><th>b.hu</th><th>ns.nic.hu (IPv4)</th><th>ns.nic.hu (IPv6)</th><th>e.hu (IPv4)</th><th>e.hu (IPv6)</th><th>Összesen</th></tr></thead><tbody>
+        &lt;tr tal:repeat=&quot;one_row data&quot;&gt;
+           &lt;td tal:content=&quot;one_row/src_address&quot;&gt;&lt;/td&gt;&lt;td tal:content=&quot;one_row/b_hu&quot;&gt;&lt;/td&gt;&lt;td tal:content=&quot;one_row/ns_nic_hu_4&quot;&gt;&lt;/td&gt;&lt;td tal:content=&quot;one_row/ns_nic_hu_6&quot;&gt;&lt;/td&gt;&lt;td tal:content=&quot;one_row/e_hu_4&quot;&gt;&lt;/td&gt;&lt;td tal:content=&quot;one_row/e_hu_6&quot;&gt;&lt;/td&gt;&lt;td tal:content=&quot;one_row/osszes&quot;&gt;&lt;/td&gt;
+        &lt;/tr&gt;</tbody></table><p>Utoljára módosítva: &lt;span tal:replace=&quot;now&quot;/&gt;</p></page>

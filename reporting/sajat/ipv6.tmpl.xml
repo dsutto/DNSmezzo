@@ -1,5 +1,5 @@
 <page title="IPv6 statisztikák" pagetitle="IPv6 fölött érkezett kérések aránya" pagesubtitle="&lt;span tal:replace=&quot;interval&quot;/&gt;">
           <p>&lt;span tal:repeat=&quot;v6-query v6-queries&quot;&gt;Átlagosan a kérések &lt;span tal:content=&quot;v6-query/perc&quot;/&gt;-a érkezett IPv6 fölött.&lt;/span&gt;</p>
     <p>Utoljára módosíta: &lt;span tal:replace=&quot;now&quot;/&gt;</p>
-          <p><img alt="" src="ipv6.png"/></p>
+          <p><img alt="" src="ipv6_png.png"/></p>
 </page>

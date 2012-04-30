@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<page title="Legtöbb kérdést feltevő alhálózatok" pagetitle="Legtöbb kérdést feltevő alhálózatok" pagesubtitle="&lt;span tal:replace=&quot;interval&quot;/&gt;"><table><thead><tr><th>Hálózat</th><th>Kérdések száma</th></tr></thead><tbody>
+        &lt;tr tal:repeat=&quot;one_row data&quot;&gt;
+           &lt;td tal:content=&quot;one_row/network&quot;&gt;&lt;/td&gt;&lt;td tal:content=&quot;one_row/count&quot;&gt;&lt;/td&gt;
+        &lt;/tr&gt;</tbody></table><p>Utoljára módosítva: &lt;span tal:replace=&quot;now&quot;/&gt;</p></page>

@@ -1,4 +1,4 @@
-<page title="Kaminsky bug" pagetitle="Rezolverek SPR Source Port Randomization) nélkül" pagesubtitle="&lt;span tal:replace=&quot;interval&quot;/&gt;">
+<page title="Kaminsky bug" pagetitle="Rezolverek SPR (Source Port Randomization) nélkül" pagesubtitle="&lt;span tal:replace=&quot;interval&quot;/&gt;">
     <table>
       <thead>
        <tr><th>Rezolver IP</th><th>Kérések száma</th><th>Különböző forrásportok száma</th><th>Ezek aránya</th></tr>
@@ -9,6 +9,6 @@
         &lt;/tr&gt;
       </tbody>
     </table>
-    <img src="kaminsky.png" alt="kaminsky_graph" />
+    <img src="kaminsky_png.png" alt="kaminsky_graph" />
     <p>Utoljára módosíta: &lt;span tal:replace=&quot;now&quot;/&gt;</p>
 </page>

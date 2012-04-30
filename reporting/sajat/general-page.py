@@ -64,7 +64,7 @@ report_type = args[0]
 
 data={}
 config = ConfigParser.SafeConfigParser()
-config.read('reports.cfg')
+config.read(['reports.cfg', 'din_tables.cfg'])
 for opt in config.items(report_type):
   exec (opt[0] + "=" + opt[1])
 
@@ -109,11 +109,11 @@ if (oneday):
       exit(e)
 
 dns_packets_tablename = newtablename
-query = query %{'dns_packets_tablename': dns_packets_tablename}
+query = query %{'dns_packets_tablename': dns_packets_tablename, 'percent_sign': '%'}
 
 # print query
 # print data
-cursor.execute(query, data)
+cursor.execute(query)
 result = []
 for t in cursor.fetchall():
     d = {}

@@ -1,0 +1,15 @@
+<page title="Kérdezett szerverek" pagetitle="Kérdések megoszlása a kérdezett szerverek alapján" pagesubtitle="&lt;span tal:replace=&quot;interval&quot;/&gt;">
+          <table>
+            <thead>
+             <tr><th>Kérdezett szerver</th><th>Kérések száma</th><th>Százalékban</th></tr>
+            </thead>
+            <tbody>
+             &lt;tr tal:repeat="row data"&gt;
+               &lt;td tal:content="row/dst_address"&gt;&lt;/td&gt;&lt;td tal:content="row/queries"&gt;&lt;/td&gt;&lt;td tal:content="row/perc"&gt;&lt;/td&gt;
+            &lt;/tr&gt;
+            </tbody>
+          </table>
+      <h2>Időbeli eloszlás</h2>
+       <p><img alt="" src="queried_servers.png"/></p>
+ <p>Utoljára módosíta: &lt;span tal:replace=&quot;now&quot;/&gt;</p>
+</page>

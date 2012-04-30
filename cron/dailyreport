@@ -10,18 +10,25 @@ error() {
 [[ -e /tmp/database.lock ]] && pid=`head -1 /tmp/database.lock` && while [ -e /proc/$pid ]; do sleep 10; echo "sleeping"; done
 
 # Delete old files
+echo `date`: Rotating log files...
 mv $dumpdir/current/* $dumpdir/backup/
 mv $dumpdir/*cap* $dumpdir/current/
 find $dumpdir/backup/ -mtime +4 -type f -exec rm {} \;
 
 # Save content of new files into database
+echo `date`: Save content of new files into database...
 for f in $dumpdir/current/*; do
 	/home/sutda/DNSmezzo/packets2postgresql  -v -c 'host=127.0.0.1 user=dns_monitor password=nono' $f || error;
 done
 
 # Generate new reports
+echo `date`: Generating reports...
 cd /home/sutda/DNSmezzo/reporting/sajat;
 make clean
 time make || error
 chown sutda:sutda *
+echo `date`: Installing...
 make install || error
+echo `date`: Finished
+echo ---------------------------------------------------
+echo
